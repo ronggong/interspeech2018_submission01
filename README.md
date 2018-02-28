@@ -10,5 +10,5 @@ is a array containing sub-arrays. One array is a syllable unit which containing 
  
 To run the demo, you need to first install the `requirements.txt`.
 
-Then run `distribute_proposed_method.py` to see the detected syllable onset times and
+Then run `distribute_proposed_method_jupyter.ipynb` to see the detected syllable onset times and
 phoneme onset times.
