@@ -1,7 +1,7 @@
 '''
- * Copyright (C) 2017  Music Technology Group - Universitat Pompeu Fabra
+ * Copyright (C) 2018  Music Technology Group - Universitat Pompeu Fabra
  *
- * This file is part of jingjuSingingPhraseMatching
+ * This file is part of jingjuPhoneticSegmentation
  *
  * pypYIN is free software: you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License as published by the Free
@@ -24,26 +24,10 @@
  *
 '''
 
-fs = 44100
 framesize_t = 0.025  # in second
 hopsize_t = 0.010
-
-framesize = int(round(framesize_t * fs))
-hopsize = int(round(hopsize_t * fs))
-
-highFrequencyBound = fs/2 if fs/2<11000 else 11000
-
-# acoustic model
-am = 'cnn'
 
 varin = {}
 # parameters of viterbi
 varin['delta_mode'] = 'proportion'
 varin['delta']      = 0.35
-
-# parameters of the penalized viterbi
-# varin['penalized_alpha'] = 1.0
-# varin['penalized_beta'] = 1.0
-
-# parameters of posterior normalization
-varin['posterior_norm'] = 1.0
