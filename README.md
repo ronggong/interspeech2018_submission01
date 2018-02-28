@@ -3,6 +3,8 @@ Singing voice phoneme segmentation by jointly learning syllable and phoneme onse
 
 The code in the repository is for the conference review process.
 
+For the demo of the algorithm, please check the [distribute branch](https://github.com/ronggong/interspeech2018_submission01/tree/distribute).
+
 ## First thing to do
 * Use python 2.7.* I haven't test the code on python3  
 * Install the requirements.txt
