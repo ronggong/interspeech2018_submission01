@@ -5,11 +5,11 @@ The code in the repository is for the conference review process.
 
 For the demo of the algorithm, please check the [distribute branch](https://github.com/ronggong/interspeech2018_submission01/tree/distribute).
 
-## First thing to do
+## 1. First thing to do
 * Use python 2.7.* I haven't test the code on python3  
 * Install the requirements.txt
 
-## Download the 3 jingju a cappella singing voice datasets
+## 2. Download the 3 jingju a cappella singing voice datasets
 [part 1](https://doi.org/10.5281/zenodo.780559)  
 [part 2](https://doi.org/10.5281/zenodo.842229)  
 [part 3](https://doi.org/10.5281/zenodo.1185123)  
@@ -17,23 +17,23 @@ If you only want to reproduce the experiment results in the paper,
 you only need to download the part 3 because the part 1 and 2 are used
 for training the models.
 
-## Set the paths
+## 3. Set the paths
 Once datasets are downloaded, you need to set the paths to let the 
 program knows where are they. 
-
+### 3.1 Set the datasets path
 What you need to set in `./general/filePathShared.py` are:
 * Set `path_jingju_dataset` to the parent path of these three datasets.
-* Set `primarySchool_dataset_root_path` to the path of the interspeech2018 dataset (the current dataset).
-* Set `nacta_dataset_root_path` to the path of the jingju dataset part1.
-* Set `nacta2017_dataset_root_path` to the path the jingju dataset part2.
-
+* Set `primarySchool_dataset_root_path` to the path of the interspeech2018 dataset (for reproducing the experiments).
+* Set `nacta_dataset_root_path` to the path of the jingju dataset part1 (for training the models).
+* Set `nacta2017_dataset_root_path` to the path the jingju dataset part2 (for training the models).
+### 3.2 Set the training data path
 And in both `./general/filePathHsmm.py` and `./general/filePathJoint.py`:
 * Set `training_data_joint_path` to where putting the training features, labels
-for the proposed joint model.
+for the proposed joint model. (for training the models)
 * Set `training_data_hsmm_path` to where putting these files for the baseline
-HSMM emission model.
+HSMM emission model. (for training the models)
 
-## How to use pre-trained models to reproduce the results?
+## 4. How to use pre-trained models to reproduce the results?
 As you may see, there is a _cnnModels_ folder in the repo, where we store all
 the pre-trained models. To use these models, you should run the following scripts:
 * `proposed_method_pipeline.py` will calculate the syllable and phoneme onset
@@ -53,7 +53,7 @@ There are two columns in each result file, the 1st column is the mean, the 2nd
 is the std. For onset detection results, the 3rd row is the f1-measure
 without considering the label and the tolerance is 0.025s.
 
-## How to get the features, labels and samples weights?
+## 5. How to get the features, labels and samples weights?
 Make sure that you have downloaded all three datasets and set the `training_data_joint_path`
 and `training_data_hsmm_path`. In `./training_feature_collection` folder, you can:
 * Run `training_sample_collection_joint.py` for the proposed method
@@ -61,9 +61,9 @@ and `training_data_hsmm_path`. In `./training_feature_collection` folder, you ca
 
 The training materials will be stored in the paths you have set.
 
-## How to train the models?
+## 6. How to train the models?
 We have provided the training scripts. You can find them in `./model_training/train_scripts` folder.
-Before running them, you need change the necessary paths to direct to the training materials
+Before running them, you need change the necessary paths (check 3.2) to direct to the training materials
 which you obtained in the previous step.
 
 ## Questions?
