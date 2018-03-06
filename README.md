@@ -66,5 +66,76 @@ We have provided the training scripts. You can find them in `./model_training/tr
 Before running them, you need change the necessary paths (check 3.2) to direct to the training materials
 which you obtained in the previous step.
 
-## Questions?
+## So far, questions?
 Feel free to open an issue or email me: rong.gong\<at\>upf.edu
+
+## 7. Paper complementary information
+
+### 7.1 Annotation units for phoneme-level
+
+1. This table shows the annotation units used in 'pinyin', 'dianSilence' and 'details' tiers of each Praat TextGrid.
+
+2. Chinese pinyin and X-SAMPA format are given. 
+
+3. b,p,d,t,k,j,q,x,zh,ch,sh,z,c,s initials are grouped into one representation (not a formal X-SAMPA symbol): c  
+
+4. v,N,J (X-SAMPA) are three special pronunciations which do not exist in pinyin.
+
+<dl>
+<table>
+  <tr>
+    <th></th>
+    <th>Structure</th>
+    <th>Pinyin[X-SAMPA]</th>
+  </tr>
+  <tr>
+    <td rowspan="2">head</td>
+    <td>initials</td>
+    <td>m[m], f[f], n[n], l[l], g[k], h[x], r[r\'], y[j], w[w],<br>{b, p, d, t, k, j, q, x, zh, ch, sh, z, c, s} - group [c]<br>[v], [N], [J] - special pronunciations</td>
+  </tr>
+  <tr>
+    <td>medial vowels</td>
+    <td>i[i], u[u], ü[y]</td>
+  </tr>
+  <tr>
+    <td rowspan="4">belly</td>
+    <td>simple finals</td>
+    <td>a[a"], o[O], e[7], ê[E], i[i], u[u], ü[y],<br>i (zhi,chi,shi) [1], i (ci,ci,si) [M],</td>
+  </tr>
+  <tr>
+    <td>compound finals</td>
+    <td>ai[aI^], ei[eI^], ao[AU^], ou[oU^]</td>
+  </tr>
+  <tr>
+    <td>nasal finals</td>
+    <td>an[an], en[@n], in[in],<br>ang[AN], eng[7N], ing[iN], ong[UN]</td>
+  </tr>
+  <tr>
+    <td>retroflexed finals</td>
+    <td>er [@][r\']</td>
+  </tr>
+  <tr>
+    <td>tail</td>
+    <td></td>
+    <td>i[i], u[u], n[n], ng[N]</td>
+  </tr>
+</table>
+</dl>
+
+### 7.2 Phoneme and syllable detection results
+We trained both proposed and baseline models 5 times with different random seeds. The mean and the std are reported.
+#### 7.2.1 Proposed method
+
+|           | Phoneme (mean, std) | Syllable (mean, std) |
+|-----------|---------------------|----------------------|
+| Precision | 75.73, 0.60         | 76.05, 0.41          |
+| Recall    | 74.77, 0.60         | 75.59, 0.40          |
+| F1        | 75.25, 0.60         | 75.82, 0.40          |
+
+#### 7.2.2 Baseline method
+
+|           | Phoneme (mean, std) | Syllable (mean, std) |
+|-----------|---------------------|----------------------|
+| Precision | 42.92, 0.89         | 41.16, 1.02          |
+| Recall    | 46.18, 0.96         | 40.91, 1.02          |
+| F1        | 44.49, 0.92         | 41.04, 1.02          |
