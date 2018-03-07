@@ -148,7 +148,7 @@ The training materials will be stored in the paths you have set.
 
 ### B.6 How to train the models?
 We have provided the training scripts. You can find them in `./model_training/train_scripts` folder.
-Before running them, you need change the necessary paths (check 3.2) to direct to the training materials
+Before running them, you need change the necessary paths (check B.3.2) to direct to the training materials
 which you obtained in the previous step.
 
 ## Questions?
