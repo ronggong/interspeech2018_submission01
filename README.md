@@ -71,7 +71,7 @@ and alignment path by the blue staircase line.
 </table>
 </dl>
 
-### A.3 Phoneme and syllable detection results
+### A.3 Phoneme and syllable onset detection results
 We trained both proposed and baseline models 5 times with different random seeds. The mean and the std are reported.
 #### A.3.1 Proposed method
 
