@@ -18,11 +18,11 @@ from general.trainTestSeparation import get_train_test_recordings_joint
 from general.utilFunctions import textgrid_syllable_phoneme_parser
 from audio_preprocessing import feature_reshape
 from audio_preprocessing import get_log_mel_madmom
-from helperCode import gt_score_preparation_helper
-from helperCode import results_aggregation_save_helper
-from helperCode import findShiftOffset
-from helperCode import score_variations_phn
-from plotCode import figure_plot_joint
+from helper_code import gt_score_preparation_helper
+from helper_code import results_aggregation_save_helper
+from helper_code import findShiftOffset
+from helper_code import score_variations_phn
+from plot_code import figure_plot_joint
 from eval.onsetSegmentEval.runEval import run_eval_onset
 from eval.onsetSegmentEval.runEval import run_eval_segment
 

@@ -17,10 +17,10 @@ from general.parameters import *
 from general.utilFunctions import textgrid_syllable_phoneme_parser
 from general.trainTestSeparation import get_train_test_recordings_joint
 from general.phonemeMap import dic_pho_map
-from helperCode import results_aggregation_save_helper
-from helperCode import gt_score_preparation_helper
-from helperCode import findShiftOffset
-from plotCode import figure_plot_hsmm
+from helper_code import results_aggregation_save_helper
+from helper_code import gt_score_preparation_helper
+from helper_code import findShiftOffset
+from plot_code import figure_plot_hsmm
 from onsetSegmentEval.runEval import run_eval_onset
 from onsetSegmentEval.runEval import run_eval_segment
 

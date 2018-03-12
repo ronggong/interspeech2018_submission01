@@ -71,9 +71,71 @@ and alignment path by the blue staircase line.
 </table>
 </dl>
 
-### A.3 Phoneme and syllable onset detection results
+### A.3 Baseline forced alignment details
+
+The baseline is a 1-state monophone DNN/HSMM model. We use monophone model 
+because (i) our small dataset doesn't have enough phoneme instances for exploring 
+the context-dependent triphones model, and (ii) Brognaux and Drugman[1]
+ and Pakoci et al.[2] argued that context-dependent model 
+ can't bring significant alignment improvement. It is convenient to apply 1-state 
+ model because each phoneme can be represented by a semi-Markovian state carrying 
+ a state occupancy time distribution. The audio preprocessing step is the same as 
+ in the paper section 3.1.
+
+**Discriminative acoustic model**: We use a CNN with softmax outputs 
+as the discriminative acoustic model. According to the work of 
+Renals et al.[3], a neural network with softmax 
+outputs trained for framewise phoneme classification outputs the 
+posterior probability p(q|x) (q: state, x: observation), 
+which can be approximated as the acoustic model at the frame-level 
+if we assume equal phoneme class priors. In our previous work, 
+a one-layer CNN with multi-filter shapes has been designed. 
+It has been experimentally proved that this architecture can successfully 
+learn timbral characteristics and outperformed some deeper CNN architectures 
+in the phoneme classification task for a small jingju 
+singing dataset[4]. Thus, we use this one-layer 
+CNN acoustic model for the baseline method. The same 
+log-mel context introduced in section 3.1 is used as 
+the model input and its phoneme class as the target label. 
+The model predicts the phoneme class posterior probability for each context.
+
+**Coarse duration and state occupancy distribution**: 
+The baseline method receives the phoneme durations of 
+teacher's singing phrase as the prior input. The phoneme durations are stored 
+in a collapsed version of the ![M_p](figs/M_p.jpg) array 
+(section 3.2.1): 
+
+![collapsed_M_p](figs/collapsed_M_p.jpg)
+
+The silences are treated separately and have their independent durations.
+
+The state occupancy is the time duration that the student sings on 
+a certain phoneme state. It is expected to be the same duration as 
+in the teacher's singing. We build the state occupancy distribution as a Gaussian, 
+which has the same form ![state_occupancy](figs/state_occupancy.jpg) as 
+in section 3.2.1, where ![mu_n](figs/mu_n.jpg) indicates in this context 
+the nth phoneme duration of the teacher's singing. 
+We set ![gamma](figs/gamma.jpg) empirically to 0.2 as we found this value works well 
+in our preliminary experiment.
+
+**HSMM for phoneme boundaries and labels inference**: 
+We construct an HSMM for phoneme segment inference. 
+The topology is a left-to-right semi-Markov chain, 
+where the states represent the phonemes of the teacher's singing phrase sequentially. 
+As we are dealing with the forced alignment, 
+we constraint that the inference can only be started by the leftmost state and 
+terminated to the rightmost state. The self-transition probabilities 
+are set to 0 because the state occupancy depends on the predefined distribution. 
+Other transitions - from current states to subsequent states are set to 1. 
+The inference goal is to find best state sequence, and we use 
+Guédon's HSMM Viterbi algorithm[5] for this purpose. 
+The implementation code can be found in the path `lyricsRecognizer`. 
+Finally, the segments are labeled by the alignment path, 
+and the phoneme onsets are taken on the state transition time positions.
+
+### A.4 Phoneme and syllable onset detection results
 We trained both proposed and baseline models 5 times with different random seeds. The mean and the std are reported.
-#### A.3.1 Proposed method
+#### A.4.1 Proposed method
 
 |           | Phoneme (mean, std) | Syllable (mean, std) |
 |-----------|---------------------|----------------------|
@@ -81,7 +143,7 @@ We trained both proposed and baseline models 5 times with different random seeds
 | Recall    | 74.77, 0.60         | 75.59, 0.40          |
 | F1        | 75.25, 0.60         | 75.82, 0.40          |
 
-#### A.3.2 Baseline method
+#### A.4.2 Baseline method
 
 |           | Phoneme (mean, std) | Syllable (mean, std) |
 |-----------|---------------------|----------------------|
@@ -153,3 +215,12 @@ which you obtained in the previous step.
 
 ## Questions?
 Feel free to open an issue or email me: rong.gong\<at\>upf.edu
+
+## References
+* [1] S. Brognaux and T. Drugman, "HMM-Based Speech Segmentation: Improvements of Fully Automatic Approaches," in IEEE/ACM Transactions on Audio, Speech, and Language Processing, vol. 24, no. 1, pp. 5-15, Jan. 2016.
+doi: 10.1109/TASLP.2015.2456421
+* [2] Pakoci E., Popović B., Jakovljević N., Pekar D., Yassa F. (2016) A Phonetic Segmentation Procedure Based on Hidden Markov Models. In: Ronzhin A., Potapova R., Németh G. (eds) Speech and Computer. SPECOM 2016. Lecture Notes in Computer Science, vol 9811. Springer,
+* [3] S. Renals, N. Morgan, H. Bourlard, M. Cohen and H. Franco, "Connectionist probability estimators in HMM speech recognition," in IEEE Transactions on Speech and Audio Processing, vol. 2, no. 1, pp. 161-174, Jan. 1994.
+doi: 10.1109/89.260359
+* [4] Pons, J., Slizovskaia, O., Gong, R., Gómez, E., & Serra, X. (2017, August). Timbre analysis of music audio signals with convolutional neural networks. In Signal Processing Conference (EUSIPCO), 2017 25th European (pp. 2744-2748)
+* [5] Guédon, Y., 2007. Exploring the state sequence space for hidden Markov and semi-Markov chains. Computational Statistics & Data Analysis, 51(5), pp.2379-2409.

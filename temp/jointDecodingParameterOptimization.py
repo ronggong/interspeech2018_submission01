@@ -20,7 +20,7 @@ from onsetSegmentEval.runEval import run_eval_onset
 from onsetSegmentEval.runEval import run_eval_segment
 
 import pickle
-import random
+# import random
 from keras.models import load_model
 
 def randomSearch(bounds,
