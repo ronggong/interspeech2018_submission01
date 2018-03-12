@@ -1,5 +1,5 @@
 # INTERSPEECH 2018 submission 01
-Singing voice phoneme segmentation by jointly learning syllable and phoneme onset positions.
+Language-independent and duration-informed solo singing voice phoneme segmentation by jointly learning syllable and phoneme onset positions.
 
 The code in the repository is for the conference review process.
 
@@ -156,7 +156,7 @@ We trained both proposed and baseline models 5 times with different random seeds
 * Use python 2.7.* I haven't test the code on python3  
 * Install the requirements.txt
 
-### B.2 Download the 3 jingju a cappella singing voice datasets
+### B.2 Download 3 jingju solo singing voice datasets
 [part 1](https://doi.org/10.5281/zenodo.780559)  
 [part 2](https://doi.org/10.5281/zenodo.842229)  
 [part 3](https://doi.org/10.5281/zenodo.1185123)  
