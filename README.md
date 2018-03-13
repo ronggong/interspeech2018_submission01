@@ -3,7 +3,11 @@ Language-independent and duration-informed solo singing voice phoneme segmentati
 
 The code in the repository is for the conference review process.
 
-For the demo of the algorithm, please check the [distribute branch](https://github.com/ronggong/interspeech2018_submission01/tree/distribute).
+For the demo of the proposed algorithm, please check the [jupyter notebook](https://goo.gl/BzajRy).
+You should be able to "open with" `google colaboratory` in you `google drive`, then "open in playground"
+to execute it block by block.
+
+The code of the demo is in the [distribute branch](https://github.com/ronggong/interspeech2018_submission01/tree/distribute).
 
 ## A Paper complementary information
 
