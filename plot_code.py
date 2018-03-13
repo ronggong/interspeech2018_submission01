@@ -4,7 +4,7 @@ used in proposed_method_pipeline.py"""
 import matplotlib
 matplotlib.use('TkAgg')
 
-from parameters import *
+from general.parameters import *
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches

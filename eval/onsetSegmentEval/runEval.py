@@ -1,15 +1,15 @@
 """run evaluation on the onset detection results, output results in the eval directory"""
 
-from filePathHsmm import eval_results_path as eval_results_path_hsmm
-from filePathJoint import eval_results_path as eval_results_path_joint
-from filePathHsmm import cnn_file_name
-from filePathJoint import cnnModel_name
+from general.filePathHsmm import eval_results_path as eval_results_path_hsmm
+from general.filePathJoint import eval_results_path as eval_results_path_joint
+from general.filePathHsmm import cnn_file_name
+from general.filePathJoint import cnnModel_name
 from general.trainTestSeparation import get_train_test_recordings_joint
 from general.utilFunctions import get_recordings
 from evaluation import onsetEval
 from evaluation import segmentEval
 from evaluation import metrics
-from parameters import *
+from general.parameters import *
 import os
 import pickle
 import numpy as np

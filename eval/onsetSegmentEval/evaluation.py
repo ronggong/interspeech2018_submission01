@@ -14,8 +14,8 @@ for the automatic segmentation of speech into syllables
 TRANSCRIPTION
 """
 
-from phonemeMap import misMatchIgnorePhn
-from phonemeMap import misMatchIgnoreSyl
+from general.phonemeMap import misMatchIgnorePhn
+from general.phonemeMap import misMatchIgnoreSyl
 
 
 def onsetEval(groundtruthOnsets, detectedOnsets, tolerance, label):

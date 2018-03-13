@@ -5,6 +5,7 @@ from os import makedirs
 from os.path import exists
 
 import numpy as np
+import soundfile as sf
 import pyximport
 
 pyximport.install(reload_support=True,
@@ -52,6 +53,7 @@ def onset_function_all_recordings(wav_path,
                                   eval_results_path,
                                   obs_cal='tocal',
                                   plot=False,
+                                  save_data=False,
                                   missing_phn=False):
     """
     ODF and viterbi decoding
@@ -63,6 +65,7 @@ def onset_function_all_recordings(wav_path,
     :param eval_results_path: string, where to put the evaluation results
     :param obs_cal: string, tocal or toload, if to calculate the observation function
     :param plot: bool
+    :param save_data: bool, whether to save the wav, duration and label data
     :param missing_phn: bool, whether to consider the missing phonemes in actual singing, for experiment (not in the paper)
     :return:
     """
@@ -219,7 +222,8 @@ def onset_function_all_recordings(wav_path,
                 phoneme_score_durs_syl_vars = [phoneme_score_durs_syl] # init the durs_syl_vars
                 if missing_phn:
                     phoneme_score_labels_syl = phoneme_score_labels_grouped_by_syllables[ii_syl_boundary]
-                    phoneme_score_labels_syl_vars, phoneme_score_durs_syl_vars = score_variations_phn(phoneme_score_labels_syl, phoneme_score_durs_syl)
+                    phoneme_score_labels_syl_vars, phoneme_score_durs_syl_vars = \
+                        score_variations_phn(phoneme_score_labels_syl, phoneme_score_durs_syl)
 
                 # missing phoneme decoding, only for experiment, not included in the paper
                 if missing_phn and len(phoneme_score_durs_syl_vars) > 1:
@@ -296,9 +300,33 @@ def onset_function_all_recordings(wav_path,
                                   syllable_score_durs,
                                   phoneme_score_durs)
 
+            if save_data:
+                # save wav line
+                data_wav, fs_wav = sf.read(wav_file)
+                sf.write('./temp/wav_line_'+str(ii_line)+'.wav', data_wav, fs_wav)
+
+                # save durations:
+                pickle.dump(syllable_score_durs,
+                            open('./temp/syllable_score_durs_'+str(ii_line)+'.pkl', 'w'), protocol=2)
+                pickle.dump(phoneme_score_durs_grouped_by_syllables,
+                            open('./temp/phoneme_score_durs_grouped_by_syllables_' + str(ii_line) + '.pkl', 'w'),
+                            protocol=2)
+                print(syllable_score_durs)
+                print(phoneme_score_durs_grouped_by_syllables)
+
+                # save labels:
+                pickle.dump(syllable_score_labels,
+                            open('./temp/syllable_score_labels_' + str(ii_line) + '.pkl', 'w'), protocol=2)
+                pickle.dump(phoneme_score_labels_grouped_by_syllables,
+                            open('./temp/phoneme_score_labels_grouped_by_syllables_' + str(ii_line) + '.pkl', 'w'),
+                            protocol=2)
+                print(syllable_score_labels)
+                print(phoneme_score_labels_grouped_by_syllables)
+
 
 def main():
     plot = False
+    save_data = False
 
     # missing phoneme experiment parameters
     missing_phn = False
@@ -324,6 +352,7 @@ def main():
                                       eval_results_path=eval_results_path+'_'+str(ii),
                                       obs_cal='tocal',
                                       plot=plot,
+                                      save_data=save_data,
                                       missing_phn=missing_phn)
 
         # calculate the evaluation results
