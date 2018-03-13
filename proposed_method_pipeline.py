@@ -304,7 +304,8 @@ def onset_function_all_recordings(wav_path,
                 # save wav line
                 data_wav, fs_wav = sf.read(wav_file)
                 sf.write('./temp/wav_line_'+str(ii_line)+'.wav',
-                         data_wav[int(frame_start*hopsize_t):int(frame_end*hopsize_t)], fs_wav)
+                         data_wav[int(time_start*fs_wav):int(time_end*fs_wav)], fs_wav)
+                print(time_start, time_end)
 
                 # save durations:
                 pickle.dump(syllable_score_durs,
@@ -327,7 +328,7 @@ def onset_function_all_recordings(wav_path,
 
 def main():
     plot = False
-    save_data = False
+    save_data = True
 
     # missing phoneme experiment parameters
     missing_phn = False
