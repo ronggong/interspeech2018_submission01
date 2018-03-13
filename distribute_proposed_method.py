@@ -26,12 +26,15 @@ model_joint = load_model(os.path.join(joint_cnn_model_path, 'jan_joint0.h5'))
 # load log mel feature scaler
 scaler_joint = pickle.load(open(os.path.join(joint_cnn_model_path, 'scaler_joint.pkl'), 'rb'))
 
-wav_file = './temp/line0.wav'
-syllable_durations_file = './temp/syllable_durations.npy'
-phoneme_durations_file = './temp/phoneme_durations_grouped_by_syllables.npy'
+wav_file = './temp/wav_line_0.wav'
+syllable_durations_file = './temp/syllable_score_durs_0.pkl'
+phoneme_durations_file = './temp/phoneme_score_durs_grouped_by_syllables_0.pkl'
 
-syllable_durations = np.load(syllable_durations_file)
-phoneme_durations = np.load(phoneme_durations_file)
+syllable_durations = pickle.load(open(syllable_durations_file, 'rb'))
+phoneme_durations = np.load(open(phoneme_durations_file, 'rb'))
+
+print(syllable_durations)
+print(phoneme_durations)
 
 
 def smooth_obs(obs):
@@ -119,7 +122,7 @@ def proposed_method_pipeline(wav_file,
         boundaries_phoneme_syl = \
             viterbiDecodingPhonemeSeg.viterbiSegmental2(obs_phoneme_syl, phoneme_score_durs_syl, varin)
 
-        # phoneme boundaries
+        # phoneme boundariesUntitled Folder
         boundaries_phoneme_syl_start_time = \
             (np.array(boundaries_phoneme_syl[:-1]) + frame_start_syl) * hopsize_t
         boundaries_phoneme_syl_end_time = (np.array(boundaries_phoneme_syl[1:]) + frame_start_syl) * hopsize_t
