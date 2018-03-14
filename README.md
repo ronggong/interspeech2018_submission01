@@ -1,5 +1,5 @@
 # INTERSPEECH 2018 submission 01
-Language-independent and duration-informed solo singing voice phoneme segmentation by jointly learning syllable and phoneme onset positions.
+## Singing voice phoneme segmentation by hierarchically inferring syllable and phoneme onset positions
 
 The code in the repository is for the conference review process.
 
