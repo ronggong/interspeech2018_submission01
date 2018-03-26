@@ -9,9 +9,9 @@ to execute it block by block.
 
 The code of the demo is in the [distribute branch](https://github.com/ronggong/interspeech2018_submission01/tree/distribute).
 
-[here](##a-paper-complementary-information)
+[here](#a-paper-complementary-information)
 
-[here](###a.3-baseline-forced-alignment-details)
+[here](##a.3-baseline-forced-alignment-details)
 
 ## A Paper complementary information
 
