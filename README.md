@@ -9,9 +9,28 @@ to execute it block by block.
 
 The code of the demo is in the [distribute branch](https://github.com/ronggong/interspeech2018_submission01/tree/distribute).
 
-[here](#a-paper-complementary-information)
+## Menu
+[A Paper complementary information](#a-paper-complementary-information)
+* [A.1 Results example](##a1-results-example)
+* [A.2 Annotation units for phoneme-level](##a2-annotation-units-for-phoneme-level)
+* [A.3 Baseline forced alignment details](##a3-baseline-forced-alignment-details)
+* [A.4 Phoneme and syllable onset detection results](##a4-phoneme-and-syllable-onset-detection-results)  
+    * [A.4.1 Proposed method](###a41-proposed-method)  
+    * [A.4.2 Baseline method](###a42-baseline-method)
+    
+[B Code usage](#b-code-usage)
+* [B.1 First thing to do](##b1-first-thing-to-do)
+* [B.2 Download 3 jingju solo singing voice datasets](##b2-download-3-jingju-solo-singing-voice-datasets)
+* [B.3 Set the paths](##b3-set-the-paths)
+    * [B.3.1 Set the datasets path](###b31-set-the-datasets-path)
+    * [B.3.2 Set the training data path](###b32-set-the-training-data-path)
+* [B.4 How to use pre-trained models to reproduce the results?](##b4-how-to-use-pre-trained-models-to-reproduce-the-results?)
+* [B.5 How to get the features, labels and samples weights?](##b5-how-to-get-the-features-labels-and-samples-weights)
+* [B.6 How to train the models?](##b6-how-to-train-the-models)
 
-[here](##a.3-baseline-forced-alignment-details)
+[Questions?](#questions)  
+[References](##references)
+
 
 ## A Paper complementary information
 
