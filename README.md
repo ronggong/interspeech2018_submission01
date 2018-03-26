@@ -24,7 +24,7 @@ The code of the demo is in the [distribute branch](https://github.com/ronggong/i
 * [B.3 Set the paths](#b3-set-the-paths)
     * [B.3.1 Set the datasets path](#b31-set-the-datasets-path)
     * [B.3.2 Set the training data path](#b32-set-the-training-data-path)
-* [B.4 How to use pre-trained models to reproduce the results?](#b4-how-to-use-pre-trained-models-to-reproduce-the-results?)
+* [B.4 How to use pre-trained models to reproduce the results?](#b4-how-to-use-pre-trained-models-to-reproduce-the-results)
 * [B.5 How to get the features, labels and samples weights?](#b5-how-to-get-the-features-labels-and-samples-weights)
 * [B.6 How to train the models?](#b6-how-to-train-the-models)
 
