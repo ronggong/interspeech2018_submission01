@@ -10,7 +10,7 @@ to execute it block by block.
 The code of the demo is in the [distribute branch](https://github.com/ronggong/interspeech2018_submission01/tree/distribute).
 
 ## Contents
-[A Paper complementary information](#a-paper-complementary-information)
+[A. Paper complementary information](#a-paper-complementary-information)
 * [A.1 Results example](#a1-results-example)
 * [A.2 Annotation units for phoneme-level](#a2-annotation-units-for-phoneme-level)
 * [A.3 Baseline forced alignment details](#a3-baseline-forced-alignment-details)
@@ -18,7 +18,7 @@ The code of the demo is in the [distribute branch](https://github.com/ronggong/i
     * [A.4.1 Proposed method](#a41-proposed-method)  
     * [A.4.2 Baseline method](#a42-baseline-method)
     
-[B Code usage](#b-code-usage)
+[B. Code usage](#b-code-usage)
 * [B.1 First thing to do](#b1-first-thing-to-do)
 * [B.2 Download 3 jingju solo singing voice datasets](#b2-download-3-jingju-solo-singing-voice-datasets)
 * [B.3 Set the paths](#b3-set-the-paths)
