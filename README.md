@@ -217,7 +217,7 @@ results using the proposed method, then save them to `./eval/results/joint/`.
 
 For each model, we have trained five times, to get the mean and std statistics, you
 need to run `eval_stats.py`. The final results will be put in `./eval/hsmm/` or 
-`./eval/joint/` folds.
+`./eval/joint/` folders.
 * _*phoneme_onset_all.txt_: phoneme onset detection results
 * _*phoneme_segment_all.txt_: phoneme segmentation results
 * _*syllable_onset_all.txt_: syllable onset detection results
