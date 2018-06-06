@@ -1,7 +1,7 @@
-# INTERSPEECH 2018 submission 01
+# INTERSPEECH 2018 phoneme segmentation
 ## Singing voice phoneme segmentation by hierarchically inferring syllable and phoneme onset positions
 
-The code in the repository is for the conference review process.
+The code in the repository is for reproducing the experiment results of the conference paper.
 
 For the demo of the proposed algorithm, please check the [jupyter notebook](https://goo.gl/BzajRy).
 You should be able to "open with" `google colaboratory` in you `google drive`, then "open in playground"
