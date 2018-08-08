@@ -21,8 +21,8 @@ from helper_code import results_aggregation_save_helper
 from helper_code import gt_score_preparation_helper
 from helper_code import findShiftOffset
 from plot_code import figure_plot_hsmm
-from onsetSegmentEval.runEval import run_eval_onset
-from onsetSegmentEval.runEval import run_eval_segment
+from eval.onsetSegmentEval.runEval import run_eval_onset
+from eval.onsetSegmentEval.runEval import run_eval_segment
 
 
 def phoneme_seg_all_recordings(wav_path,
